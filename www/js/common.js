@@ -11,3 +11,11 @@ function loadMySite() {
     var ref = cordova.InAppBrowser.open('https://www.navinda.xyz', '_system', 'location=yes');
     ref.close();
 }
+
+//when page loaded
+$(document).ready(function () {
+    //load about page
+    $('#about').load('./pages/about.html');
+    //focus input box
+    $('#txtInput').focus();
+});
