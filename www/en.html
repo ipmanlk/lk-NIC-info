@@ -35,16 +35,18 @@
 
       </form>
       <!--info start-->
-      <div id="info">
-          <center><h3 style="margin-top: 30px;margin-bottom: 10px;">Instructions</h3></center>  
-          <div class="ui-body ui-body-b ui-corner-all info">
-            <ol>
-              <li>This app supports both old &amp; new NIC numbers.</li>
-              <li>First, enter your NIC number (New or Old).</li>
-              <li>Then press the Find Button.</li>
-              <li>NIC type will be detected automatically.</li>
-            </ol>
-          </div>
+      <div id="instruction" style="font-size: 12px;">
+        <center>
+          <h3 style="margin-top: 30px;margin-bottom: 10px;">Instructions</h3>
+        </center>
+        <div class="ui-body ui-body-b ui-corner-all instruction">
+          <ol>
+            <li>This app supports both old &amp; new NIC numbers.</li>
+            <li>First, enter your NIC number (New or Old).</li>
+            <li>Then press the Find Button.</li>
+            <li>NIC type will be detected automatically.</li>
+          </ol>
+        </div>
       </div>
       <!--info end-->
 
@@ -122,10 +124,17 @@
 
     <div role="main" class="ui-content">
       <div class="ui-body ui-body-b ui-corner-all">
-        <ul>
-          <li>Developed By Navinda Dissanayake.</li>
-          <li>www.navinda.xyz</li>
-        </ul>
+        <center>
+          <img style="margin-top:25px;" src="img/logo.png" width="60%">
+        </center>
+        <h5 style="margin-bottom: 6px;">Developed By</h5>
+        <h4 style="margin-top: 0px;">Navinda Dissanayake</h4>
+        <h5 style="margin-bottom: 6px;">Website</h5>
+        <h4 style="margin-top: 0px;">
+          <a href="" onclick="loadMySite()">www.navinda.xyz</a>
+        </h4>
+        <h5 style="margin-bottom: 6px;">E-Mail</h5>
+        <h4 style="margin-top: 0px;">navilk@zoho.com</h4>
       </div>
     </div>
 
@@ -165,6 +174,11 @@
   <script src="js/translator.js"></script>
 
   <script>
+    //load in browser
+    function loadMySite() {
+      var ref = cordova.InAppBrowser.open('https://www.navinda.xyz', '_system', 'location=yes');
+      ref.close();
+    }
 
     //when page loaded
     $(document).ready(function () {
@@ -178,7 +192,7 @@
     $('#inputForm').submit(function (e) {
 
       //hide info
-      $('#info').hide();
+      $('#instruction').hide();
 
       //avoid refresh
       e.preventDefault();
@@ -194,6 +208,8 @@
         $('#vote').text(vote);
         $('#nicInfo').fadeIn();
 
+      } else {
+        navigator.notification.alert("NIC Number is invalid!", null, "Error", "Ok")
       }
 
       //remove focus from button

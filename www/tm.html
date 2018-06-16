@@ -35,11 +35,11 @@
 
       </form>
       <!--info start-->
-      <div id="info" class="sinhala" style="font-size: 14px;">
+      <div id="instruction" class="sinhala" style="font-size: 12px;">
         <center>
           <h3 style="margin-top: 30px;margin-bottom: 10px;">வழிமுறைகள்</h3>
         </center>
-        <div class="ui-body ui-body-b ui-corner-all info">
+        <div class="ui-body ui-body-b ui-corner-all instruction">
           <ol>
             <li>இந்தப் பயன்பாடு பழைய மற்றும் புதிய அடையாள அட்டை எண்களை ஆதரிக்கிறது.</li>
             <li>முதலில், உங்கள் அடையாள அட்டை எண்ணை (புதியது அல்லது பழைய) உள்ளிடவும்.</li>
@@ -118,36 +118,43 @@
   <!--about page start-->
   <div data-role="page" id="about" data-theme="b">
 
-    <div data-role="header">
-      <h1>About App</h1>
-    </div>
-
-    <div role="main" class="ui-content">
-      <div class="ui-body ui-body-b ui-corner-all">
-        <ul>
-          <li>Developed By Navinda Dissanayake.</li>
-          <li>www.navinda.xyz</li>
-        </ul>
+      <div data-role="header">
+        <h1>About App</h1>
       </div>
-    </div>
-
-    <!--footer start-->
-    <div data-role="footer" data-position="fixed" id="mainFooter">
-      <div data-role="navbar">
-        <ul>
-          <li>
-            <a href="#home" id="chat" data-icon="home">வீட்டில்</a>
-          </li>
-          <li>
-            <a href="#about" id="chat" data-icon="info" class="ui-btn-active ui-state-persist">பற்றி</a>
-          </li>
-        </ul>
+  
+      <div role="main" class="ui-content">
+        <div class="ui-body ui-body-b ui-corner-all">
+          <center>
+            <img style="margin-top:25px;" src="img/logo.png" width="60%">
+          </center>
+          <h5 style="margin-bottom: 6px;">Developed By</h5>
+          <h4 style="margin-top: 0px;">Navinda Dissanayake</h4>
+          <h5 style="margin-bottom: 6px;">Website</h5>
+          <h4 style="margin-top: 0px;">
+            <a href="" onclick="loadMySite()">www.navinda.xyz</a>
+          </h4>
+          <h5 style="margin-bottom: 6px;">E-Mail</h5>
+          <h4 style="margin-top: 0px;">navilk@zoho.com</h4>
+        </div>
       </div>
+  
+      <!--footer start-->
+      <div data-role="footer" data-position="fixed" id="mainFooter">
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a href="#home" id="chat" data-icon="home">Home</a>
+            </li>
+            <li>
+              <a href="#about" id="chat" data-icon="info" class="ui-btn-active ui-state-persist">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--footer end-->
     </div>
-    <!--footer end-->
-  </div>
-
-  <!--about page end-->
+  
+    <!--about page end-->
 
   <!--scripts start-->
 
@@ -180,7 +187,7 @@
     $('#inputForm').submit(function (e) {
 
       //hide info
-      $('#info').hide();
+      $('#instruction').hide();
 
       //avoid refresh
       e.preventDefault();
@@ -196,7 +203,10 @@
         $('#vote').text(vote);
         $('#nicInfo').fadeIn();
 
+      } else {
+        navigator.notification.alert("NIC Number is invalid!", null, "Error", "Ok")
       }
+
 
       //remove focus from button
       $('btnFind').blur();
