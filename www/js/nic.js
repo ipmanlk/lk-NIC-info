@@ -42,13 +42,9 @@ function getNicDetails(nic) {
     }
 
     //find birthday 
+    if (getNicType(nic)) {nicYear = getFullYear(nicYear);}
     bDay = getBday(nicYear, nicDays);
-    if (getNicType(nic)) {
-        bDay = moment(bDay, 'D/M/YY').format();
-    } else {
-        bDay = moment(bDay, 'D/M/YYYY').format();
-    }
-
+    bDay = moment(bDay, 'D/M/YYYY').format();
     bDay = bDay.split('T')[0];
 
     //find age
@@ -67,6 +63,11 @@ function getBday(year, days) {
     let month = DayAndMonth[1];
     let date = day + "/" + month + "/" + year;
     return (date);
+}
+
+function getFullYear(yy) {
+    let fullYear = (yy < 17) ? '20' + yy : '19' + yy;
+    return (fullYear);
 }
 
 function getAge(date) {
