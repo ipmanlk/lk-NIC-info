@@ -4,6 +4,8 @@ $('#inputForm').submit(function (e) {
     $('#instruction').hide();
     //avoid refresh
     e.preventDefault();
+    //hide keyboard
+    Keyboard.hide();
     //get nic
     let nic = $('#txtInput').val();
 
