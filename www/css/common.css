@@ -1,0 +1,18 @@
+.table {
+    width: 80%;
+    margin: auto;
+}
+
+.custominput {
+    text-align: center !important;
+    font-size: 20px !important;
+}
+
+.nicInfo {
+    margin-top: 30px !important;
+}
+
+.ui-header .ui-title {
+    margin-right: 10%;
+    margin-left: 10%;
+}

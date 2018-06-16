@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/custom-font.css">
+  <!--cordova-->
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <!--common css codes-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <!--home page start-->
+  <div data-role="page" id="home" data-theme="b">
+
+    <div data-role="header" class="header">
+      <h1>SL NIC Info Finder</h1>
+    </div>
+
+    <div data-role="content">
+      <center>
+        <label for="text-basic" class="ui-bar ui-bar-b ui-corner-all sinhala">அடையாள அட்டை எண்</label>
+      </center>
+
+      <form id="inputForm">
+
+        <input id="txtInput" class="custominput" type="text" placeholder="123456789V">
+        <input id="btnFind" class="ui-shadow ui-btn ui-corner-all sinhala" type="submit" value="கண்டுபிடிப்பு">
+
+      </form>
+      <!--display nic details start-->
+      <div id="nicInfo" class="nicInfo" style="display: none;">
+        <center>
+          <label class="ui-bar ui-bar-b ui-corner-all">தகவல்</label>
+        </center>
+
+        <div class="ui-body ui-body-b ui-corner-all nic-info test">
+          <table class="table sinhala">
+            <tr>
+              <td>ஆஇடேந்டிடீ கார்ட மாதிரி</td>
+              <td>:</td>
+              <td>
+                <span id="nicType"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>பிறந்த நாள்</td>
+              <td>:</td>
+              <td>
+                <span id="bDay"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>வயது</td>
+              <td>:</td>
+              <td>
+                <span id="age"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>பாலினம்</td>
+              <td>:</td>
+              <td>
+                <span id="gender"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>வாக்களிப்பு உரிமைகள்</td>
+              <td>:</td>
+              <td>
+                <span id="vote"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--display nic details end-->
+      </div>
+    </div>
+    <!--footer start-->
+    <div data-role="footer" data-position="fixed" id="mainFooter">
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <a href="#home" id="chat" data-icon="home" class="ui-btn-active ui-state-persist">வீட்டில்</a>
+          </li>
+          <li>
+            <a href="#about" id="chat" data-icon="info">பற்றி</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--footer end-->
+  </div>
+  <!--home page end-->
+
+  <!--about page start-->
+  <div data-role="page" id="about" data-theme="b">
+
+    <div data-role="header">
+      <h1>About App</h1>
+    </div>
+
+    <div role="main" class="ui-content">
+      <div class="ui-body ui-body-b ui-corner-all nic-info test">
+        <ul>
+          <li>Developed By Navinda Dissanayake.</li>
+          <li>www.navinda.xyz</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--footer start-->
+    <div data-role="footer" data-position="fixed" id="mainFooter">
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <a href="#home" id="chat" data-icon="home">வீட்டில்</a>
+          </li>
+          <li>
+            <a href="#about" id="chat" data-icon="info" class="ui-btn-active ui-state-persist">பற்றி</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--footer end-->
+  </div>
+
+  <!--about page end-->
+
+  <!--scripts start-->
+
+  <!--moment.js-->
+  <script src="js/moment.js"></script>
+
+  <!--nic details grabber-->
+  <script src="js/nic.js"></script>
+
+  <!--day and month from days-->
+  <script src="js/getDayAndMonth.js"></script>
+
+  <!--common functions-->
+  <script src="js/common.js"></script>
+
+  <!--translator-->
+  <script src="js/translator.js"></script>
+
+  <script>
+
+    //when page loaded
+    $(document).ready(function () {
+      $('#txtInput').focus();
+      langCode = 2; //lang is tamil
+    });
+
+    var nic;
+
+    //trigger when form submit
+    $('#inputForm').submit(function (e) {
+
+      //avoid refresh
+      e.preventDefault();
+
+      nic = $('#txtInput').val();
+
+      if (validateNic(nic)) {
+        getNicDetails(nic);
+        $('#nicType').text(nicType);
+        $('#bDay').text(bDay);
+        $('#age').text(age);
+        $('#gender').text(gender);
+        $('#vote').text(vote);
+        $('#nicInfo').fadeIn();
+
+      }
+
+      //remove focus from button
+      $('btnFind').blur();
+
+    });
+
+    //trigger when user type nic
+    $('#txtInput').keyup(function () {
+
+      nic = $('#txtInput').val();
+
+      if (validateNic(nic)) {
+        $(this).css({ 'background': '' });
+      } else {
+        $(this).css({ 'background': '#700000' });
+      }
+
+      //change color to null when input is null
+      if (!isNotNull(nic)) {
+        $(this).css({ 'background': '' });
+      }
+      
+    });
+  </script>
+  <!--scripts end-->
+
+</body>
+
+</html>

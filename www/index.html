@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Select Lang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
+  <link rel="stylesheet" href="css/custom-font.css">
+  <!--cordova-->
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <!--common css codes-->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <!--home page start-->
+  <div data-role="page" id="home" data-theme="b">
+
+    <div data-role="header" class="header">
+      <h1>SL NIC Info Finder</h1>
+    </div>
+
+    <div data-role="content">
+      <center>
+        <label for="text-basic" class="ui-bar ui-bar-b ui-corner-all">Please select your language
+          <br/>
+          <span class="sinhala">කරුණාකර ඔබගේ භාෂාව තෝරන්න</span>
+          <br/>
+          <span class="sinhala">தயவு செய்து உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</span>
+        </label>
+      </center>
+
+      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
+        <a class="ui-shadow ui-btn ui-corner-all" onclick="loadPage('en');">English</a>
+      </div>
+
+      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
+        <a href="./sn.html" class="ui-shadow ui-btn ui-corner-all sinhala" onclick="loadPage('sn');">සිංහල</a>
+      </div>
+
+      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
+        <a href="./sn.html" class="ui-shadow ui-btn ui-corner-all sinhala" onclick="loadPage('tm');">தமிழ்</a>
+      </div>
+    </div>
+
+    <!--footer start-->
+    <div data-role="footer" data-position="fixed" id="mainFooter">
+      <h4>Version 1.0.0</h4>
+    </div>
+    <!--footer end-->
+  </div>
+  <!--home page end-->
+
+  <script>
+    function loadPage(lang) {
+      if (lang === 'en') {
+        $(location).attr('href', 'en.html')
+      } else if (lang === 'sn') {
+        $(location).attr('href', 'sn.html');
+      } else if (lang === 'tm') {
+        $(location).attr('href', 'tm.html');
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Malithi-Web";
+  src: url(../fonts/malithi_web.ttf) format("truetype");
+}
+
+.sinhala {
+  font-family: "Malithi-Web", Verdana, Tahoma !important;
+}
