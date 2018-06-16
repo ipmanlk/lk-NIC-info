@@ -16,3 +16,8 @@
     margin-right: 10%;
     margin-left: 10%;
 }
+
+.info ol li{
+    padding-bottom: 8px;
+    padding-top: 8px;
+}

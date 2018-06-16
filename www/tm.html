@@ -34,6 +34,22 @@
         <input id="btnFind" class="ui-shadow ui-btn ui-corner-all sinhala" type="submit" value="கண்டுபிடிப்பு">
 
       </form>
+      <!--info start-->
+      <div id="info" class="sinhala" style="font-size: 14px;">
+        <center>
+          <h3 style="margin-top: 30px;margin-bottom: 10px;">வழிமுறைகள்</h3>
+        </center>
+        <div class="ui-body ui-body-b ui-corner-all info">
+          <ol>
+            <li>இந்தப் பயன்பாடு பழைய மற்றும் புதிய அடையாள அட்டை எண்களை ஆதரிக்கிறது.</li>
+            <li>முதலில், உங்கள் அடையாள அட்டை எண்ணை (புதியது அல்லது பழைய) உள்ளிடவும்.</li>
+            <li>பின் பட்டன் அழுத்தவும்.</li>
+            <li>அடையாள அட்டை வகை தானாகவே கண்டறியப்படும்.</li>
+          </ol>
+        </div>
+      </div>
+      <!--info end-->
+
       <!--display nic details start-->
       <div id="nicInfo" class="nicInfo" style="display: none;">
         <center>
@@ -163,6 +179,9 @@
     //trigger when form submit
     $('#inputForm').submit(function (e) {
 
+      //hide info
+      $('#info').hide();
+
       //avoid refresh
       e.preventDefault();
 
@@ -199,7 +218,7 @@
       if (!isNotNull(nic)) {
         $(this).css({ 'background': '' });
       }
-      
+
     });
   </script>
   <!--scripts end-->

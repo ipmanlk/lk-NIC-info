@@ -34,7 +34,20 @@
         <input id="btnFind" class="ui-shadow ui-btn ui-corner-all" type="submit" value="Find Details">
 
       </form>
-      
+      <!--info start-->
+      <div id="info">
+          <center><h3 style="margin-top: 30px;margin-bottom: 10px;">Instructions</h3></center>  
+          <div class="ui-body ui-body-b ui-corner-all info">
+            <ol>
+              <li>This app supports both old &amp; new NIC numbers.</li>
+              <li>First, enter your NIC number (New or Old).</li>
+              <li>Then press the Find Button.</li>
+              <li>NIC type will be detected automatically.</li>
+            </ol>
+          </div>
+      </div>
+      <!--info end-->
+
       <!--display nic details start-->
       <div id="nicInfo" class="nicInfo" style="display: none;">
         <center>
@@ -164,6 +177,9 @@
     //trigger when form submit
     $('#inputForm').submit(function (e) {
 
+      //hide info
+      $('#info').hide();
+
       //avoid refresh
       e.preventDefault();
 
@@ -200,7 +216,7 @@
       if (!isNotNull(nic)) {
         $(this).css({ 'background': '' });
       }
-      
+
     });
   </script>
   <!--scripts end-->

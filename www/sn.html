@@ -34,6 +34,22 @@
         <button id="btnFind" type="submit" class="ui-shadow ui-btn ui-corner-all sinhala">සොයන්න</button>
 
       </form>
+      <!--info start-->
+      <div id="info" class="sinhala">
+        <center>
+          <h3 style="margin-top: 30px;margin-bottom: 10px;">උපදෙස්</h3>
+        </center>
+        <div class="ui-body ui-body-b ui-corner-all info">
+          <ol>
+            <li>මෙම ඇප් එක පැරණි සහ නව හැදුනුම්පත් අංක සදහා සහය දක්වයි.</li>
+            <li>මුලින්ම ඔබගේ හැදුනුම්පත් අංකය (පැරණි හෝ නව) ඇතුල් කරන්න.</li>
+            <li>ඉන් පසුව "සොයන්න" බටන් එක ඔබන්න.</li>
+            <li>හැදුනුම්පත් වර්ගය ස්වයංක්‍රියාව සොයාගනු ඇත.</li>
+          </ol>
+        </div>
+      </div>
+      <!--info end-->
+
       <!--display nic details start-->
       <div id="nicInfo" class="nicInfo" style="display: none;">
         <center>
@@ -87,10 +103,14 @@
       <div data-role="navbar">
         <ul>
           <li>
-            <a href="#home" id="chat" data-icon="home" class="ui-btn-active ui-state-persist"><span class="sinhala">මුල් පිටුව</span></a>
+            <a href="#home" id="chat" data-icon="home" class="ui-btn-active ui-state-persist">
+              <span class="sinhala">මුල් පිටුව</span>
+            </a>
           </li>
           <li>
-            <a href="#about" id="chat" data-icon="info"><span class="sinhala">විස්තර</span></a>
+            <a href="#about" id="chat" data-icon="info">
+              <span class="sinhala">විස්තර</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -120,10 +140,14 @@
       <div data-role="navbar">
         <ul>
           <li>
-            <a href="#home" id="chat" data-icon="home"><span class="sinhala">මුල් පිටුව</span></a>
+            <a href="#home" id="chat" data-icon="home">
+              <span class="sinhala">මුල් පිටුව</span>
+            </a>
           </li>
           <li>
-            <a href="#about" id="chat" data-icon="info" class="ui-btn-active ui-state-persist"><span class="sinhala">විස්තර</span></a>
+            <a href="#about" id="chat" data-icon="info" class="ui-btn-active ui-state-persist">
+              <span class="sinhala">විස්තර</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -162,6 +186,9 @@
 
     //trigger when form submit
     $('#inputForm').submit(function (e) {
+      
+      //hide info
+      $('#info').hide();
 
       //avoid refresh
       e.preventDefault();
@@ -199,7 +226,7 @@
       if (!isNotNull(nic)) {
         $(this).css({ 'background': '' });
       }
-      
+
     });
   </script>
   <!--scripts end-->
