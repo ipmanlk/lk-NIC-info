@@ -56,11 +56,11 @@
   <script>
     function loadPage(lang) {
       if (lang === 'en') {
-        $(location).attr('href', 'en.html')
+        window.location.replace("en.html");
       } else if (lang === 'sn') {
-        $(location).attr('href', 'sn.html');
+        window.location.replace("sn.html");
       } else if (lang === 'tm') {
-        $(location).attr('href', 'tm.html');
+        window.location.replace("tm.html");
       }
     }
   </script>
