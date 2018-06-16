@@ -3,7 +3,6 @@ var bDay;
 var age;
 var nicType;
 var vote;
-var langCode;
 
 /*
 langCode 0 = english
