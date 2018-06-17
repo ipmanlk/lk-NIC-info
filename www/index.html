@@ -1,17 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>Select Lang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
   <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
+  <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/custom-font.css">
-  <!--cordova-->
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-  <!--common css codes-->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <title>Home</title>
 </head>
 
 <body>
@@ -24,46 +24,109 @@
 
     <div data-role="content">
       <center>
-        <label for="text-basic" class="ui-bar ui-bar-b ui-corner-all">Please select your language
-          <br/>
-          <span class="sinhala">කරුණාකර ඔබගේ භාෂාව තෝරන්න</span>
-          <br/>
-          <span class="sinhala">தயவு செய்து உங்கள் மொழியைத் தேர்ந்தெடுக்கவும்</span>
-        </label>
+        <label for="text-basic" class="ui-bar ui-bar-b ui-corner-all">NIC Number</label>
       </center>
 
-      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
-        <a href="./en.html"  class="ui-shadow ui-btn ui-corner-all" onclick="loadPage('en');">English</a>
-      </div>
 
-      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
-        <a href="./sn.html" class="ui-shadow ui-btn ui-corner-all sinhala" onclick="loadPage('sn');">සිංහල</a>
-      </div>
+      <input id="txtInput" class="custominput" type="text" placeholder="123456789V">
+      <input id="btnFind" onclick="fucker();" type="button" value="Find Details">
 
-      <div class="ui-body ui-body-b ui-corner-all nic-info test" style="margin-top: 20px">
-        <a href="./tm.html" class="ui-shadow ui-btn ui-corner-all sinhala" onclick="loadPage('tm');">தமிழ்</a>
+      <!--info start-->
+      <div id="instruction" style="font-size: 13px;">
+        <center>
+          <h3 style="margin-top: 30px;margin-bottom: 10px;">Instructions</h3>
+        </center>
+        <div class="ui-body ui-body-b ui-corner-all instruction">
+          <ol>
+            <li>This app supports both old &amp; new NIC numbers.</li>
+            <li>First, enter your NIC number (New or Old).</li>
+            <li>Then press the Find Button.</li>
+            <li>NIC type will be detected automatically.</li>
+          </ol>
+        </div>
+      </div>
+      <!--info end-->
+
+      <!--display nic details start-->
+      <div id="nicInfo" class="nicInfo" style="display:none;">
+        <center>
+          <label class="ui-bar ui-bar-b ui-corner-all">Information</label>
+        </center>
+
+        <div class="ui-body ui-body-b ui-corner-all">
+          <table class="table">
+            <tr>
+              <td>NIC Type</td>
+              <td>:</td>
+              <td>
+                <span id="nicType"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>Date of Birth</td>
+              <td>:</td>
+              <td>
+                <span id="bDay"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>:</td>
+              <td>
+                <span id="age"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>:</td>
+              <td>
+                <span id="gender"></span>
+              </td>
+            </tr>
+            <tr>
+              <td>Voting Status</td>
+              <td>:</td>
+              <td>
+                <span id="vote"></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--display nic details end-->
       </div>
     </div>
-
     <!--footer start-->
     <div data-role="footer" data-position="fixed" id="mainFooter">
-      <h4>Version 1.0.0</h4>
+      <div data-role="navbar">
+        <ul>
+          <li>
+            <a href="#home" id="chat" data-icon="home" class="ui-btn-active ui-state-persist">Home</a>
+          </li>
+          <li>
+            <a href="#about" id="chat" data-icon="info">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <!--footer end-->
   </div>
   <!--home page end-->
 
-  <script>
-    function loadPage(lang) {
-      if (lang === 'en') {
-        window.location.replace("en.html");
-      } else if (lang === 'sn') {
-        window.location.replace("sn.html");
-      } else if (lang === 'tm') {
-        window.location.replace("tm.html");
-      }
-    }
-  </script>
+  <!--about page start-->
+  <div data-role="page" id="about" data-theme="b">
+
+  </div>
+  <!--about page end-->
+
+  <!--js start-->
+  <script src="cordova.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="js/nic.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/handleInput.js" charset="utf-8"></script>
+   <!--js end-->
 </body>
 
 </html>

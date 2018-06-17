@@ -19,11 +19,3 @@ $(document).ready(function () {
     //focus input box
     $('#txtInput').focus();
 });
-
-//disable back button
-document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        document.addEventListener("backbutton", function (e) {
-            e.preventDefault();
-        }, false );
-}
